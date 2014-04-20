@@ -6,7 +6,7 @@
 /*   By: jalcim <jalcim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/01 23:37:32 by jalcim            #+#    #+#             */
-/*   Updated: 2014/04/14 13:58:59 by jalcim           ###   ########.fr       */
+/*   Updated: 2014/04/20 07:09:20 by jalcim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+void *ft_malloc(long long size);
 char **ft_strsplit(char const *s, char c);
 
 char *ft_strcat (char * dest, const char *src);

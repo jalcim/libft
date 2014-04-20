@@ -6,7 +6,7 @@
 #    By: jalcim <jalcim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/23 22:52:49 by jalcim            #+#    #+#              #
-#    Updated: 2014/04/14 14:03:24 by jalcim           ###   ########.fr        #
+#    Updated: 2014/04/20 07:08:14 by jalcim           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -26,7 +26,7 @@ SRC = ft_atoi.c		ft_isprint.c	ft_memcpy.c		ft_putendl.c \
 	ft_strncmp.c	ft_strsplit.c	ft_strcat.c		ft_strdup.c \
 	ft_strclr.c		ft_strcpy.c		ft_strjoin.c	ft_putstr_fd.c \
 	ft_realloc.c	ft_strlcar.c	ft_printf.c		ft_strrcpy.c \
-	ft_strrncpy.c	ft_strrlcar.c	ft_rbzero.c
+	ft_strrncpy.c	ft_strrlcar.c	ft_rbzero.c		ft_malloc.c
 
 OBJ =  ft_atoi.o	ft_isprint.o	ft_memcpy.o		ft_putendl.o \
 	ft_strdel.o		ft_strlcat.o	ft_strncpy.o	ft_strstr.o \
@@ -42,7 +42,7 @@ OBJ =  ft_atoi.o	ft_isprint.o	ft_memcpy.o		ft_putendl.o \
 	ft_strncmp.o	ft_strsplit.o	ft_strcat.o		ft_strdup.o \
 	ft_strclr.o		ft_strcpy.o		ft_strjoin.o	ft_putstr_fd.o \
 	ft_realloc.o	ft_strlcar.o	ft_printf.o		ft_strrcpy.o \
-	ft_strrncpy.o	ft_strrlcar.o	ft_rbzero.o
+	ft_strrncpy.o	ft_strrlcar.o	ft_rbzero.o		ft_malloc.o
 
 FLAGS = -Wall -Werror -Wextra
 

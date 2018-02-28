@@ -10,53 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 #include <unistd.h>
 
-char		**ft_strsplit(char const *s, char c);
-static int	nb_str(char *s, char c);
+void *ft_malloc(unsigned int size);
+static int nb_str(char *s, char c);
 
-char		**ft_strsplit(char const *s, char c)
+char **ft_strsplit(char const *s, char c)
 {
-	char	**str;
-	char	*start;
-	char	*end;
-	int		size;
-	int		compt;
+  char **str;
+  char *start;
+  char *end;
+  int size;
+  int compt;
 
-	start = (char *)s;
-	size = nb_str(start, c);
-	str = (char **)malloc(sizeof(char *) * (size + 1));
-	str[size] = NULL;
-	start = (char *)s;
-	(end = start, compt = -1);
-	while (end != '\0' && ++compt < size)
+  start = (char *)s;
+  size = nb_str(start, c);
+  str = (char **)ft_malloc(sizeof(char *) * (size + 1));
+  str[size] = NULL;
+  start = (char *)s;
+  (end = start, compt = -1);
+  while (end != '\0' && ++compt < size)
+    {
+      end = start;
+      while (*end != c && end != '\0')
+	end++;
+      if ((end - start) > 0)
 	{
-		end = start;
-		while (*end != c && end != '\0')
-			end++;
-		if ((end - start) > 0)
-		{
-			str[compt] = (char *)malloc(end - start);
-			strncpy(str[compt], start, (end - start));
-		}
-		start = (end + 1);
+	  str[compt] = (char *)ft_malloc(end - start);
+	  strncpy(str[compt], start, (end - start));
 	}
-	return (str);
+      start = (end + 1);
+    }
+  return (str);
 }
 
-static int		nb_str(char *s, char c)
+static int nb_str(char *s, char c)
 {
-	int		compt;
+  int compt;
 
-	compt = 1;
-	while (*s != '\0')
-	{
-		if (*s == c)
-			compt++;
-		s++;
-	}
-	return (compt);
+  compt = 1;
+  while (*s != '\0')
+    {
+      if (*s == c)
+	compt++;
+      s++;
+    }
+  return (compt);
 }

@@ -10,15 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strnew(size_t size)
+void *ft_malloc(unsigned int size);
+void ft_bzero (void *src, unsigned int size);
+
+char *ft_strnew(unsigned int size)
 {
-	char *str;
+  char *str;
 
-	if (!(str = (char *)malloc(size * sizeof(char))))
-		return (NULL);
-	ft_bzero(str, size);
+  if (!(str = (char *)ft_malloc(size * sizeof(char))))
+    return (NULL);
+  ft_bzero(str, size);
 
-	return (str);
+  return (str);
 }

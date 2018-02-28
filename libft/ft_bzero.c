@@ -10,16 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	ft_bzero(void *src, size_t size)
+void ft_bzero(void *src, unsigned int size)
 {
-	size_t	compt;
-	char	*tab;
+  char	*tab;
 
-	compt = -1;
-	tab = (char *) src;
-
-	while (++compt < size)
-		tab[compt] = 0;
+  tab = (char *)src;
+  while (size--)
+    *tab++ = 0;
 }

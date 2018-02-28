@@ -10,19 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+void *ft_malloc(unsigned int size);
+int ft_strlen(const char *src);
 
-int		ft_strlen(const char *src);
-
-char	*ft_strmap(const char *s, char (*f)(char))
+char *ft_strmap(const char *s, char (*f)(char))
 {
-	int compt;
-	char *s2;
+  int compt;
+  char *s2;
 
-	compt = -1;
-	s2 = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
-	while (s[++compt] != '\0')
-		s2[compt] = (*f)(s[compt]);
+  compt = -1;
+  s2 = (char *)ft_malloc((ft_strlen(s) + 1) * sizeof(char));
+  while (s[++compt] != '\0')
+    s2[compt] = (*f)(s[compt]);
 
-	return (s2);
+  return (s2);
 }

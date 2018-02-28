@@ -10,17 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <string.h>
 
-void	*ft_realloc(void *replace, int size)
-{
-    char	*ptr;
+void *ft_malloc(unsigned int size);
+void ft_free(void *ptr);
+void ft_bzero (void *src, unsigned int size);
+void *ft_memcpy (void *dest, const void *src, int n);
 
-    if (!(ptr = (char *)malloc(size)))
-        return (NULL);
-	ft_bzero (ptr, size);
-    ft_memcpy(ptr, (char *)replace, sizeof(*replace));
-	free(replace);
-	return ((void *)ptr);
+void *ft_realloc(void *replace, unsigned int size)
+{
+  char *ptr;
+
+  if (!(ptr = (char *)ft_malloc(size)))
+    return (NULL);
+  ft_bzero (ptr, size);
+  ft_memcpy(ptr, (char *)replace, sizeof(*replace));
+  ft_free(replace);
+  return ((void *)ptr);
 }

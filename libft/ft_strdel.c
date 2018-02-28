@@ -11,10 +11,11 @@
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
+
+void ft_free(void *ptr);
 
 void	ft_strdel(char **as)
 {
-	free(*as);
-	*as = NULL;
+  ft_free(*as);
+  *as = NULL;
 }

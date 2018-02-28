@@ -10,17 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memset(void *source, int rempl, size_t size)
+void *ft_memset(void *source, int rempl, unsigned int size)
 {
-	unsigned char	*s1;
-	size_t			compt;
+  unsigned char	*s1;
 
-	compt = -1;
-	s1 = (unsigned char *)source;
-	while (++compt < size)
-		s1[compt] = rempl;
+  s1 = (unsigned char *)source;
+  while (size--)
+    *s1++ = rempl;
 
-	return (source);
+  return (source);
 }

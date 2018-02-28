@@ -10,14 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-int		ft_strncmp(const char *s1, const char *s2, size_t size)
+int ft_strncmp(const char *s1, const char *s2, int size)
 {
-	size_t	compt;
+  int compt;
 
-	compt = 0;
-	while (s1[compt] != '\0' && s1[compt] == s2[compt] && compt < (size - 1))
-		compt++;
-	return (s1[compt] - s2[compt]);
+  compt = -1;
+  while (s1[++compt] != '\0' && s1[compt] == s2[compt] && compt < (size - 1));
+  return (s1[compt] - s2[compt]);
 }

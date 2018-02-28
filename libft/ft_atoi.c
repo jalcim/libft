@@ -10,20 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *buf);
+void ft_putendl_fd(const char *str, int fd);
+void ft_putstr_fd(const char *str, int fd);
 
-int		ft_atoi(const char *buf)
+int ft_atoi(const char *buf)
 {
-	int nb;
-	int compt;
+  int nb;
+  int compt;
 
-	nb = 0;
-	compt = -1;
-	while (buf[++compt])
+  nb = 0;
+  compt = -1;
+  while (buf[++compt] && buf[compt] != '\n')
+    {
+      if (buf[compt] > '9' || buf[compt] < '0')
 	{
-		nb *= 10;
-		nb += (buf[compt] - '0');
+	  ft_putstr_fd("ft_atoi bad argument:\t", 2);
+	  ft_putendl_fd(buf, 2);
 	}
-
-	return (nb);
+      else
+	nb = (nb * 10) + (buf[compt] - '0'); 
+    }
+  return (nb);
 }

@@ -10,15 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strtrim(char const *s)
+void *ft_malloc(unsigned int size);
+char *ft_strcpy (char *dest, const char *src);
+int ft_strlen (const char *src);
+
+char *ft_strtrim(char const *s)
 {
-	char	*cp;
+  char *cp;
 
-	if (!(cp = malloc(ft_strlen(s))))
-		return (NULL);
-	ft_strcpy(cp, (char *)s);
+  if (!(cp = ft_malloc(ft_strlen(s))))
+    return (NULL);
+  ft_strcpy(cp, (char *)s);
 
-	return (cp);
+  return (cp);
 }

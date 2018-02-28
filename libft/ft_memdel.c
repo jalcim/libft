@@ -11,18 +11,19 @@
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
 
-void	ft_memdel(void **ap)
+void ft_free(void *ptr);
+
+void ft_memdel(void **ap)
 {
-	int compt;
+  int compt;
 
-	compt = -1;
-	while (ap[++compt])
-	{
-		free(ap[compt]);
-		ap[compt] = NULL;
-	}
-	free(ap);
-	ap = NULL;
+  compt = -1;
+  while (ap[++compt])
+    {
+      ft_free(ap[compt]);
+      ap[compt] = NULL;
+    }
+  ft_free(ap);
+  ap = NULL;
 }

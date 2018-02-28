@@ -10,26 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-int		ft_memcmp(const void *dest, const void *src, size_t size)
+int ft_memcmp(const void *dest, const void *src, unsigned int size)
 {
-	int				compt;
-	unsigned char	*s1;
-	unsigned char	*s2;
+  int compt;
+  unsigned char	*s1;
+  unsigned char	*s2;
 
-	if (dest && src && size)
+  if (dest && src && size)
+    {
+      compt = 0;
+      s1 = (unsigned char *)dest;
+      s2 = (unsigned char *)src;
+      while (size--)
 	{
-		compt = 0;
-		s1 = (unsigned char *)dest;
-		s2 = (unsigned char *)src;
-		while ((--size) + 1)
-		{
-			if (s1[compt] != s2[compt])
-				return ((int)(s1[compt] - s2[compt]));
-			compt++;
-		}
+	  if (s1[compt] != s2[compt])
+	    return ((int)(s1[compt] - s2[compt]));
+	  compt++;
 	}
-	return (0);
+    }
+  return (0);
 }
 

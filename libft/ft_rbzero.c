@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+int ft_strlen(const char *src);
 
-void	ft_rbzero(void *src, size_t size)
+void ft_rbzero(void *src, unsigned int size)
 {
-	char	*tab;
-	size_t	compt;
-	int		size_str;
+  char *tab;
+  unsigned int compt;
+  int size_str;
 
-	compt = -1;
-	size_str = ft_strlen(src);
-	tab = (char *)src;
-	while (++compt < size)
-	{
-		tab[size_str] = 0;
-		size_str--;
-	}
+  compt = -1;
+  size_str = ft_strlen(src);
+  tab = (char *)src;
+  while (++compt < size)
+    {
+      tab[size_str] = 0;
+      size_str--;
+    }
 }

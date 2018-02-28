@@ -10,35 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+int ft_strlen(const char *src);
 
-int		ft_strlen(const char *src);
-
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+int ft_strlcat(char *dest, const char *src, unsigned int size)
 {
-	char *d;
-	char *s;
-	size_t tmp;
-	size_t len;
+  char *d;
+  char *s;
+  int tmp;
+  int len;
 
-	tmp = size;
-	d = dest;
-	s = (char *) src;
-	while (*d != '\0' && tmp-- != 0)
-		d++;
-	len = d - dest;
-    tmp = size - len;
-	if (tmp == 0)
-		return (len + ft_strlen(s));
-	while (*s != '\0')
+  tmp = size;
+  d = dest;
+  s = (char *) src;
+  while (*d != '\0' && tmp-- != 0)
+    d++;
+  len = d - dest;
+  tmp = size - len;
+  if (tmp == 0)
+    return (len + ft_strlen(s));
+  while (*s != '\0')
+    {
+      if (tmp != 1)
 	{
-		if (tmp != 1)
-		{
-			*d++ = *s;
-			tmp--;
-		}
-		s++;
+	  *d++ = *s;
+	  tmp--;
 	}
-	*d = '\0';
-	return (len + (s - src));
+      s++;
+    }
+  *d = '\0';
+  return (len + (s - src));
 }

@@ -11,23 +11,23 @@
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
 
-int		ft_strlen(const char *src);
+void *ft_malloc(unsigned int size);
+int ft_strlen(const char *src);
 
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+char *ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	unsigned int	compt;
-	char			*s2;
+  unsigned int	compt;
+  char *s2;
 
-	s2 = NULL;
-	if (s != NULL && f != NULL)
-	{
-		compt = -1;
-		s2 = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
-		while (s[++compt] != '\0')
-			s2[compt] = (*f)(compt, s[compt]);
-	}
+  s2 = NULL;
+  if (s && f)
+    {
+      compt = -1;
+      s2 = (char *)ft_malloc((ft_strlen(s) + 1) * sizeof(char));
+      while (s[++compt] != '\0')
+	s2[compt] = (*f)(compt, s[compt]);
+    }
 
-	return (s2);
+  return (s2);
 }

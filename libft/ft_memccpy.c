@@ -12,24 +12,24 @@
 
 #include <string.h>
 
-void	*ft_memccpy (void *dest, const void *src, int c, size_t size)
+void *ft_memccpy (void *dest, const void *src, int c, unsigned int size)
 {
-	unsigned char		*s1;
-	const unsigned char	*s2;
-	size_t				compt;
+  unsigned char	*s1;
+  unsigned char *s2;
 
-	compt = 0;
-	if (dest && src && c && size)
+  if (dest && src && c && size)
+    {
+      s1 = (unsigned char *)dest;
+      s2 = (unsigned char *)src;
+      while (size--)
 	{
-		s1 = (unsigned char *)dest;
-		s2 = (unsigned char *)src;
-		while (compt < size)
-		{
-			s1[compt] = s2[compt];
-			compt++;
-			if (s2[compt - 1] == c)
-				return ((s1 + compt));
-		}
+	  if (*s2 == c)
+	    {
+	      *s1 = '\0';
+	      return (s2 + 1);
+	    }
+	  *s1++ = *s2++;
 	}
-	return (NULL);
+    }
+  return (NULL);
 }

@@ -10,23 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+int ft_strlen(const char *src);
 
-int		ft_strlen(const char *src);
-
-char	*ft_strncat(char * dest, const char *src, size_t size)
+char *ft_strncat(char * dest, const char *src, unsigned int size)
 {
-	size_t compt;
-	int size_d;
+  unsigned int compt;
+  unsigned int size_d;
 
-	compt = 0;
-	size_d = ft_strlen(dest);
-	while (src[compt] != '\0' && compt < size)
-	{
-		dest[size_d + compt] = src[compt];
-		compt++;
-	}
-	dest[size_d + compt] = '\0';
+  compt = -1;
+  size_d = ft_strlen(dest);
+  while (src[++compt] != '\0' && compt < size)
+    dest[size_d + compt] = src[compt];
+  dest[size_d + compt] = '\0';
 
-	return (dest);
+  return (dest);
 }

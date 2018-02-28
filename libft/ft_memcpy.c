@@ -10,19 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void *ft_memcpy(void *dest, const void *src, unsigned int n)
 {
-	size_t			compt;
-	unsigned char	*s1;
-	unsigned char	*s2;
+  unsigned int compt;
+  unsigned char	*s1;
+  unsigned char	*s2;
 
-	s1 = (unsigned char *)dest;
-	s2 = (unsigned char *)src;
-	compt = -1;
-	while (++compt < n)
-		s1[compt] = s2[compt];
+  s1 = (unsigned char *)dest;
+  s2 = (unsigned char *)src;
+  compt = -1;
+  while (++compt < n)
+    s1[compt] = s2[compt];
 
-	return ((void *)dest);
+  return ((void *)dest);
 }

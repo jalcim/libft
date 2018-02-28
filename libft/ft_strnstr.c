@@ -12,30 +12,30 @@
 
 #include <string.h>
 
-int		ft_strlen(const char *src);
+int ft_strlen(const char *src);
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t size)
+char *ft_strnstr(const char *s1, const char *s2, unsigned int size)
 {
-	size_t	compt_s1;
-	size_t	compt_s2;
-	size_t	size_s2;
+  unsigned int compt_s1;
+  unsigned int compt_s2;
+  unsigned int size_s2;
 
-    size_s2 = ft_strlen(s2);
-	compt_s1 = 0;
-	compt_s2 = 0;
-	while (s1[compt_s1] && compt_s1 < size)
+  size_s2 = ft_strlen(s2);
+  compt_s1 = 0;
+  compt_s2 = 0;
+  while (s1[compt_s1] && compt_s1 < size)
+    {
+      if (!s1[0] || !s2[0])
+	return ((char *)s1);
+      else if (s1[compt_s1] == s2[compt_s2])
 	{
-		if (!s1[0] || !s2[0])
-            return ((char *)s1);
-		else if (s1[compt_s1] == s2[compt_s2])
-		{
-			if (((compt_s2 + 1) == size_s2))
-				return ((char *)(s1 + (compt_s1 - compt_s2)));
-			compt_s2++;
-		}
-		else
-			compt_s2 = 0;
-		compt_s1++;
+	  if (((compt_s2 + 1) == size_s2))
+	    return ((char *)(s1 + (compt_s1 - compt_s2)));
+	  compt_s2++;
 	}
-	return (NULL);
+      else
+	compt_s2 = 0;
+      compt_s1++;
+    }
+  return (NULL);
 }

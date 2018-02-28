@@ -10,25 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <string.h>
 
-int		ft_strlen(const char *src);
+void *ft_malloc(unsigned int size);
+int ft_strlen(const char *src);
 
-char	*ft_strdup(const char *str)
+char *ft_strdup(const char *str)
 {
-	int compt;
-	char *dest;
+  int compt;
+  char *dest;
 
-	compt = 0;
-	if ((dest = (char *) malloc (ft_strlen (str) * sizeof(char))) == NULL)
-		return (NULL);
+  if (!(dest = (char *)ft_malloc(ft_strlen(str) * sizeof(char))))
+    return (NULL);
 
-	while (str[compt] != '\0')
-	{
-		dest[compt] = str[compt];
-		compt++;
-	}
-	dest[compt] = '\0';
+  compt = -1;
+  while (str[++compt] != '\0')
+    dest[compt] = str[compt];
+  dest[compt] = '\0';
 
-	return (dest);
+  return (dest);
 }

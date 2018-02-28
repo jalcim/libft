@@ -10,16 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char * ft_strncpy (char *dest, const char *src, size_t size)
+char *ft_strncpy (char *dest, const char *src, unsigned int size)
 {
-	size_t compt;
+  unsigned int compt;
 
-	compt = -1;
-	while (++compt < size && src[compt] != '\0')
-		dest[compt] = src[compt];
-	dest[compt] = '\0';
+  compt = -1;
+  while (++compt < size && src[compt] != '\0')
+    dest[compt] = src[compt];
+  dest[compt] = '\0';
 
-	return (dest);
+  return (dest);
 }

@@ -12,18 +12,17 @@
 
 #include <string.h>
 
-void	*ft_memchr(const void *src, int c, size_t size)
+void *ft_memchr(const void *src, int c, int size)
 {
-	unsigned char	*s1;
+  unsigned char	*s1;
 
-	s1 = (unsigned char *)src;
-	while (*s1 && size)
-	{
-		if (*s1 == c)
-			return ((void *)s1);
-		s1++;
-		size--;
-	}
+  s1 = (unsigned char *)src;
+  while (*s1 && size--)
+    {
+      if (*s1 == c)
+	return ((void *)s1);
+      s1++;
+    }
 
-	return (NULL);
+  return (NULL);
 }

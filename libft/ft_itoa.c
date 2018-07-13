@@ -1,19 +1,29 @@
 void *ft_malloc(int size);
-void ft_bzero(void *src, int size);
 
+/*
+int main()
+{
+  printf("%s \t", ft_itoa(3456789));
+  printf("%s \t", ft_itoa(345678));
+  printf("%s \t",ft_itoa(34567));
+  printf("%s \t",  ft_itoa(3456));
+  printf("%s \t",  ft_itoa(345));
+  printf("%s \t",  ft_itoa(35));
+  printf("%s \t",  ft_itoa(0));
+
+  return (0);
+}
+*/
 char *ft_itoa(int n)
 {
   int size = 1;
   int div = 10;
 
   char *nb;
-  while (n >= div)
-    {
-      size++;
-      div *= 10;
-    }
+  while (++size && n >= div)
+    div *= 10;
   nb = (char *)ft_malloc(size);
-  ft_bzero(nb, size);
+  nb[--size] = 0;
   while (--size >= 0)
     {
       nb[size] = (n % 10) + '0';
@@ -21,3 +31,4 @@ char *ft_itoa(int n)
     }
   return (nb);
 }
+
